@@ -14,11 +14,11 @@
 
   <div class="container">
     <div class="row">
-      <h1>Inicio de sesión</h1>
-      <div id="login-error" stlye="display: none;">
+      <h1>Registro</h1>
+      <div id="register-error" stlye="display: none;">
 
       </div>
-      <form id="login-form">
+      <form id="register-form">
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" class="form-control">
@@ -34,7 +34,7 @@
     </div>
 
   </div>
-  <script src="../core/js/inicio_sesion.js"></script>
+  <script src="../core/js/registro_usuario.js"></script>
 </body>
 
 </html>
