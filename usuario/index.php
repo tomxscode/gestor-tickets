@@ -12,9 +12,6 @@
     <?php require_once "../core/views/header.php"; ?>
     
     <div class="container">
-        <div class="row">
-            
-        </div>
     </div>
 </body>
 </html>
