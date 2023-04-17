@@ -25,5 +25,16 @@ class Cliente {
             return array();
         }
     }
+
+    public function crearCliente($nombre, $telefono) {
+        // Creamos la consulta
+        $sql = "INSERT INTO clientes (nombre, telefono) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        // Asignamos los valores
+        $stmt->bind_param("si", $nombre, $telefono);
+        // Ejecuta la consulta
+        $stmt->execute();
+        return $stmt->affected_rows > 0;
+    }
 }
 ?>

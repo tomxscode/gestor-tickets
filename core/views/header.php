@@ -11,6 +11,10 @@
       <li class="nav-item">
         <a class="nav-link" href=".././clientes/index.php">Clientes</a>
       </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href=".././usuario/index.php">PCU</a>
+      </li>
     </ul>
   </div>
 </nav>
