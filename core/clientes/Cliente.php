@@ -26,6 +26,32 @@ class Cliente {
         }
     }
 
+    public function obtenerCantidadClientes() {
+        $sql = "SELECT COUNT(*) as cantidad FROM clientes";
+        $resultado = $this->conn->query($sql);
+        $fila = $resultado->fetch_assoc();
+        return $fila['cantidad'];
+    }
+
+    public function obtenerClientesX($pagina, $cantidad) {
+        $inicio = ($pagina - 1) * $cantidad;
+        $sql = "SELECT * FROM clientes LIMIT ?, ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ii", $inicio, $cantidad);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+    
+        if ($resultado->num_rows > 0) {
+            $clientes = array();
+            while ($fila = $resultado->fetch_assoc()) {
+                $clientes[] = $fila;
+            }
+            return $clientes;
+        } else {
+            return array();
+        }
+    }
+
     public function buscarclientePorId($cliente_id) {
         $sql = "SELECT * FROM clientes WHERE id = ?";
         $stmt = $this->conn->prepare($sql);

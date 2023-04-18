@@ -20,6 +20,7 @@
             <div class="col-md-8">
                 <h2>Clientes registrados</h2>
                 <div id="infoContainer"></div>
+                <ul id="paginador" class="pagination"></ul>
                 <table class="table">
                     <thead class="table-dark">
                         <tr class="text-center"><th colspan="4">Listado de clientes</th></tr>
