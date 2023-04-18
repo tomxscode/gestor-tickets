@@ -8,8 +8,6 @@ $data = json_decode($request_body);
 $nombre = $data->nombre ?? '';
 $telefono = $data->telefono ?? '';
 
-echo $nombre;
-
 // Validamos los datos del formulario
 $errores = array();
 

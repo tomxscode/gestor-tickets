@@ -20,11 +20,12 @@
                 <h2>Clientes registrados</h2>
                 <table class="table">
                     <thead class="table-dark">
-                        <tr class="text-center"><th colspan="3">Listado de clientes</th></tr>
+                        <tr class="text-center"><th colspan="4">Listado de clientes</th></tr>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Teléfono</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="table-light" id="tabla-clientes"></tbody>
@@ -51,5 +52,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../core/js/crear_cliente.js"></script>
     <script src="../core/js/obtener_clientes.js"></script>
+    <script src="../core/js/eliminar_cliente.js"></script>
 </body>
 </html>
