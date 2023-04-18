@@ -13,7 +13,7 @@ function obtenerClientes() {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
                 var cliente = data[i];
-                var html = "<tr><td>" + cliente.id + "</td><td>" + cliente.nombre + "</td><td>" + cliente.telefono + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarCliente(" + cliente.id + ")'>Eliminar</button></td></tr>";
+                var html = "<tr><td>" + cliente.id + "</td><td>" + cliente.nombre + "</td><td>" + cliente.telefono + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarCliente(" + cliente.id + ")'>Eliminar</button> <button class='btn btn-info btn-sm' onclick='editarClienteX(" + cliente.id + ")'>Modificar</button></td></tr>";
                 document.querySelector("#tabla-clientes").innerHTML += html;
             }
         } else {

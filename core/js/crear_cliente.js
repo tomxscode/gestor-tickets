@@ -1,6 +1,7 @@
 const form = document.querySelector("#form-crear-cliente");
+const btnCrear = document.querySelector("#crear-cliente");
 
-form.addEventListener("submit", function(event) {
+btnCrear.addEventListener("click", function(event) {
   event.preventDefault();
   crearCliente();
 })

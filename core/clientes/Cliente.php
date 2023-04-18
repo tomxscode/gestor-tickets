@@ -37,6 +37,14 @@ class Cliente {
         return $stmt->affected_rows > 0;
     }
 
+    public function editarCliente(string $nombre, int $telefono, int $id) {
+        $sql = "UPDATE clientes SET nombre = ?, telefono = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sii", $nombre, $telefono, $id);
+        $stmt->execute();
+        return $stmt->affected_rows > 0;
+    }
+
     public function eliminarCliente($cliente_id) {
         $sql = "DELETE FROM clientes WHERE id = ?";
         $stmt = $this->conn->prepare($sql);

@@ -34,20 +34,24 @@
                 </table>
             </div>
             <div class="col-md-4">
-                <h2>Crear cliente</h2>
-                <form id="form-crear-cliente" method="post">
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" name="telefono" id="telefono" class="form-control">
-                    </div>
-                    <div class="form-group mt-1">
-                        <button type="submit" class="form-control btn btn-info">Crear</button>
-                    </div>
-                </form>
+                <h2>Gestión</h2>
+                <div class="row">
+                    <h3>Formulario</h3>
+                    <form id="form-crear-cliente" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" name="telefono" id="telefono" class="form-control">
+                        </div>
+                        <div class="form-group mt-1">
+                            <button type="submit" class="form-control btn btn-info" id="crear-cliente">Crear</button>
+                            <button type="submit" class="form-control btn btn-info" id="editar-cliente" style="display:none;">Modificar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -55,5 +59,6 @@
     <script src="../core/js/crear_cliente.js"></script>
     <script src="../core/js/obtener_clientes.js"></script>
     <script src="../core/js/eliminar_cliente.js"></script>
+    <script src="../core/js/editar_cliente.js"></script>
 </body>
 </html>
