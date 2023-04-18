@@ -26,6 +26,20 @@ class Cliente {
         }
     }
 
+    public function buscarclientePorId($cliente_id) {
+        $sql = "SELECT * FROM clientes WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $cliente_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
+
     public function crearCliente($nombre, $telefono) {
         // Creamos la consulta
         $sql = "INSERT INTO clientes (nombre, telefono) VALUES (?, ?)";

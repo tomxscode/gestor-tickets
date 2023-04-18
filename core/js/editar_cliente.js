@@ -9,6 +9,7 @@ function editarClienteX(id) {
   btnCrear.style.display = "none";
   btnEditar.style.display = "block";
   console.log(cliente_id);
+  console.log(buscarClientePorId(cliente_id));
 }
 
 btnEditar.addEventListener("click", function(event) {
@@ -34,6 +35,7 @@ function editarCliente(cliente_id) {
     if (data.success) {
       obtenerClientes();
       document.querySelector("#infoContainer").innerHTML = "<div class='alert alert-success'>Cliente editado con éxito</div>";
+      form.reset();
     } else {
       const errores = data.errores;
       const erroresContainer = document.querySelector("#errores");

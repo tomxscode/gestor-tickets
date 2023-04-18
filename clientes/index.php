@@ -59,6 +59,7 @@
     <script src="../core/js/crear_cliente.js"></script>
     <script src="../core/js/obtener_clientes.js"></script>
     <script src="../core/js/eliminar_cliente.js"></script>
+    <script src="../core/js/buscar_cliente.js"></script>
     <script src="../core/js/editar_cliente.js"></script>
 </body>
 </html>
