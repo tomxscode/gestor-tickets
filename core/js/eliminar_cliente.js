@@ -16,8 +16,10 @@ function eliminarCliente(cliente_id) {
       if (data.success) {
         console.log("Exito" + data.mensaje);
         obtenerClientes();
+        document.querySelector("#infoContainer").innerHTML = "<div class='alert alert-success'>"+ data.mensaje +"</div>";
       } else {
         console.log("Fracaso")
+        document.querySelector("#infoContainer").innerHTML = "<div class='alert alert-danger'>"+ data.mensaje +"</div>";
       }
     })
     //.catch(error => console.log(error)); 

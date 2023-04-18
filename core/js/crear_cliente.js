@@ -22,6 +22,8 @@ function crearCliente() {
       //window.location.href = 'index.php';
       console.log("Exito");
       //location.reload();
+      obtenerClientes();
+      document.querySelector("#infoContainer").innerHTML = "<div class='alert alert-success'>Cliente creado exitosamente</div>";
     } else {
       const errores = data.errores;
       const erroresContainer = document.querySelector("#errores");

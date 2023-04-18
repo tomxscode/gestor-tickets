@@ -1,3 +1,4 @@
+<?php require_once "../core/cuentas/verificar_sesion.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,6 +19,7 @@
             </div>
             <div class="col-md-8">
                 <h2>Clientes registrados</h2>
+                <div id="infoContainer"></div>
                 <table class="table">
                     <thead class="table-dark">
                         <tr class="text-center"><th colspan="4">Listado de clientes</th></tr>
