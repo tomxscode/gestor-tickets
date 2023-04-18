@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function obtenerClientes() {
+    document.querySelector("#tabla-clientes").innerHTML = '';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../core/clientes/obtener_clientes.php");
     xhr.responseType = "json";

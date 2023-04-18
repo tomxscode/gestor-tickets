@@ -37,14 +37,11 @@ class Cliente {
         return $stmt->affected_rows > 0;
     }
 
-    public function eliminarCliente($id) {
+    public function eliminarCliente($cliente_id) {
         $sql = "DELETE FROM clientes WHERE id = ?";
-        $stmt = $this.conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        if (!$stmt->execute()) {
-            die("Error al eliminar el cliente: " . $stmt->error);
-        }
-        return true;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $cliente_id);
+        return $stmt->execute();
     }
 }
 ?>
