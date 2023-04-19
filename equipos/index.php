@@ -15,9 +15,11 @@
 
   <div class="container">
     <div class="row">
+      <div id="alert-container" class="m-1"></div>
       <h2>Gestión de equipos</h2>
       <div class="col-md-8">
         <table class="table">
+          <ul id="paginador" class="pagination"></ul>
           <thead class="table-dark">
             <tr class="text-center">
               <th colspan="5">Listado</th>
@@ -30,6 +32,7 @@
               <th>Acciones</th>
             </tr>
           </thead>
+          <tbody class="table-light" id="tabla-equipos"></tbody>
         </table>
       </div>
       <div class="col-md-4">
@@ -75,6 +78,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../core/js/clientes_select.js"></script>
   <script src="../core/js/crear_equipo.js"></script>
+  <script src="../core/js/obtener_equipos.js"></script>
 </body>
 
 </html>

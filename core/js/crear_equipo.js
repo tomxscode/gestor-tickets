@@ -23,7 +23,8 @@ function crearEquipo() {
   .then(response => response.json())
   .then(data => {
     if (data.success) {
-      console.log("Exito")
+      obtenerEquipos();
+      document.querySelector("#alert-container").innerHTML = "<div class='alert alert-success'>Equipo creado con éxito</div>";
     } else {
       console.log("Error");
     }
