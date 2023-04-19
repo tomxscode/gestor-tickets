@@ -18,7 +18,18 @@
       <h2>Gestión de equipos</h2>
       <div class="col-md-8">
         <table class="table">
-          <thead></thead>
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th colspan="5">Listado</th>
+            </tr>
+            <tr>
+              <th>ID</th>
+              <th>Equipo</th>
+              <th>Num. serie</th>
+              <th>Dueño</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
         </table>
       </div>
       <div class="col-md-4">
@@ -63,6 +74,7 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../core/js/clientes_select.js"></script>
+  <script src="../core/js/crear_equipo.js"></script>
 </body>
 
 </html>
