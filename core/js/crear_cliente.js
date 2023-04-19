@@ -24,6 +24,7 @@ function crearCliente() {
       console.log("Exito");
       //location.reload();
       obtenerClientes();
+      form.reset();
       document.querySelector("#infoContainer").innerHTML = "<div class='alert alert-success'>Cliente creado exitosamente</div>";
     } else {
       const errores = data.errores;

@@ -25,6 +25,7 @@ function crearEquipo() {
     if (data.success) {
       obtenerEquipos();
       document.querySelector("#alert-container").innerHTML = "<div class='alert alert-success'>Equipo creado con éxito</div>";
+      form.reset();
     } else {
       console.log("Error");
     }
