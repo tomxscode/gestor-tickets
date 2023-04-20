@@ -37,5 +37,26 @@ class Equipo {
     $fila = $resultado->fetch_assoc();
     return $fila['cantidad']; 
   }
+
+  public function obtenerEquipoPorId($equipo_id) {
+    $sql = "SELECT * FROM equipos WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("i", $equipo_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+      return $result->fetch_assoc();
+    } else {
+      return null;
+    }
+  }
+
+  public function editarEquipo($equipo_id, $marca, $modelo, $serial, $observacion, $cliente) {
+    $sql = "UPDATE equipos SET marca = ?, modelo = ?, serial = ?, dueno = ?, comentarios = ? WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("sssisi", $marca, $modelo, $serial, $cliente, $observacion, $equipo_id);
+    $stmt->execute();
+    return $stmt->affected_rows > 0;
+  }
 }
 ?>

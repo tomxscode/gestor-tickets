@@ -66,6 +66,7 @@
                 </div>
                 <div class="form-group mt-1">
                   <button class="form-control btn btn-primary" id="registrar-equipo">Registrar</button>
+                  <button class="form-control btn btn-primary" id="editar-equipo" style="display: none;">Editar</button>
                 </div>
 
               </form>
@@ -79,6 +80,8 @@
   <script src="../core/js/clientes_select.js"></script>
   <script src="../core/js/crear_equipo.js"></script>
   <script src="../core/js/obtener_equipos.js"></script>
+  <script src="../core/js/editar_equipo.js"></script>
+  <script src="../core/js/buscar_equipo_por_id.js"></script>
 </body>
 
 </html>
