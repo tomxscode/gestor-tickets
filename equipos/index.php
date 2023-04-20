@@ -56,7 +56,7 @@
                   <input type="text" name="serialnum" id="serialnum" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="serialnum">Detalles</label>
+                  <label for="detalles">Detalles</label>
                   <textarea type="text" name="detalles" id="detalles" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
