@@ -1,10 +1,12 @@
 const form = document.querySelector('#form-crear-equipo');
 const btnCrear = document.querySelector('#registrar-equipo');
 
-btnCrear.addEventListener('click', function(event) {
-  event.preventDefault();
-  crearEquipo();
-})
+if (btnCrear.style.display == "block") {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    crearEquipo();
+  })
+}
 
 function crearEquipo() {
   const marca = form.querySelector('#marca').value;

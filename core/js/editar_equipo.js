@@ -9,6 +9,7 @@ function prepararEdicion(id) {
   equipo_id = id;
   btnRegistrar.style.display = "none";
   btnEditar.style.display = "block";
+  console.log(btnEditar.style.display);
   buscarEquipoPorId(id).then(equipo => {
     equipoConsultado = equipo;
     // Modificación del DOM
@@ -20,10 +21,12 @@ function prepararEdicion(id) {
   });
 }
 
-formEdit.addEventListener('submit', (event) => {
-  event.preventDefault();
-  editarEquipo(equipo_id);
-})
+if (btnEditar.style.display == "block") {
+  formEdit.addEventListener('submit', (event) => {
+    event.preventDefault();
+    editarEquipo(equipo_id);
+  })
+}
 
 
 function editarEquipo(equipo_id) {
