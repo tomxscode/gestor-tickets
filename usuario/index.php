@@ -1,3 +1,4 @@
+<?php require_once "../core/cuentas/verificar_sesion.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
