@@ -58,5 +58,12 @@ class Equipo {
     $stmt->execute();
     return $stmt->affected_rows > 0;
   }
+
+  public function eliminarEquipo($equipo_id) {
+    $sql = "DELETE FROM equipos WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param('i', $equipo_id);
+    return $stmt->execute();
+  }
 }
 ?>

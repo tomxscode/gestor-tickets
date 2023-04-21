@@ -78,11 +78,12 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="../core/js/clientes_select.js"></script>
+  <script src="../core/js/clientes/clientes_select.js"></script>
   <script src="../core/js/crear_equipo.js"></script>
   <script src="../core/js/obtener_equipos.js"></script>
   <script src="../core/js/editar_equipo.js"></script>
   <script src="../core/js/buscar_equipo_por_id.js"></script>
+  <script src="../core/js/eliminar.js"></script>
 </body>
 
 </html>

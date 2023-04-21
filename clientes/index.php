@@ -57,10 +57,10 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../core/js/crear_cliente.js"></script>
-    <script src="../core/js/obtener_clientes.js"></script>
-    <script src="../core/js/eliminar_cliente.js"></script>
-    <script src="../core/js/buscar_cliente.js"></script>
-    <script src="../core/js/editar_cliente.js"></script>
+    <script src="../core/js/clientes/crear_cliente.js"></script>
+    <script src="../core/js/clientes/obtener_clientes.js"></script>
+    <script src="../core/js/clientes/eliminar_cliente.js"></script>
+    <script src="../core/js/clientes/buscar_cliente.js"></script>
+    <script src="../core/js/clientes/editar_cliente.js"></script>
 </body>
 </html>
