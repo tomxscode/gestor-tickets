@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link" href=".././equipos/index.php">Equipos</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href=".././trabajos/index.php">Trabajos</a>
+      </li>
       
       <li class="nav-item">
         <a class="nav-link" href=".././usuario/index.php">PCU</a>
