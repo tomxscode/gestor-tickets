@@ -45,7 +45,7 @@ function pintarTabla(pagina) {
     // Pinta los datos en una tabla
     datosPagina.forEach(function (cliente) {
         const tr = document.createElement('tr');
-        tr.innerHTML = "<td>" + cliente.id + "</td><td>" + cliente.nombre + "</td><td>" + cliente.telefono + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarCliente(" + cliente.id + ")'>Eliminar</button> <button class='btn btn-info btn-sm' onclick='editarClienteX(" + cliente.id + ")'>Modificar</button></td>";
+        tr.innerHTML = "<td>" + cliente.id + "</td><td>" + cliente.nombre + "</td><td>" + cliente.telefono + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarCliente(" + cliente.id + ")'><i class='zmdi zmdi-delete'></i></button> <button class='btn btn-info btn-sm' onclick='editarClienteX(" + cliente.id + ")'><i class='zmdi zmdi-edit'></i></button></td>";
         tabla.appendChild(tr);
     });
 }

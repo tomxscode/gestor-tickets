@@ -35,7 +35,7 @@ function pintarTabla(pagina) {
 
   datosPagina.forEach(function (equipo) {
     const tr = document.createElement('tr');
-    tr.innerHTML = "<td>" + equipo.id + "</td><td>" + equipo.marca + " " + equipo.modelo + "</td><td>" + equipo.serial + "</td><td>" + equipo.nombre_dueno + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarEquipo(" + equipo.id + ")'>Eliminar</button> <button class='btn btn-info btn-sm' onclick='prepararEdicion(" + equipo.id + ")'>Modificar</button></td>";
+    tr.innerHTML = "<td>" + equipo.id + "</td><td>" + equipo.marca + " " + equipo.modelo + "</td><td>" + equipo.serial + "</td><td>" + equipo.nombre_dueno + "</td><td><button class='btn btn-danger btn-sm' onclick='eliminarEquipo(" + equipo.id + ")'><i class='zmdi zmdi-delete'></i></button> <button class='btn btn-info btn-sm' onclick='prepararEdicion(" + equipo.id + ")'><i class='zmdi zmdi-edit'></i></button></td>";
     tabla.appendChild(tr);
   });
 }

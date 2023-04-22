@@ -40,7 +40,7 @@
         <div class="row" id="menu-crear">
           <div class="card">
             <div class="card-header">
-              Formulario
+              Información
             </div>
             <div class="card-body">
               <form id="form-crear-equipo" method="post">
