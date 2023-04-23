@@ -19,27 +19,25 @@
       <div id="alert-container" class="m-1"></div>
       <h2>Gestión de trabajos</h2>
       <p>Texto de prueba, rellenar con información de la pantalla</p>
-      <div class="col-md-8">
+      <div class="col-md-12">
         <table class="table">
           <ul id="paginador" class="pagination"></ul>
           <thead class="table-dark">
             <tr class="text-center">
-              <th colspan="6">Listado de trabajos</th>
+              <th colspan="7">Listado de trabajos</th>
             </tr>
             <tr>
               <th>ID</th>
-              <th>Equipo</th> <!-- Enlace al equipo (ejecuta un pop up con la info del equipo) -->
-              <th>Trabajo</th> <!-- Información breve -->
-              <th>Fecha ingreso</th> <!-- Fecha de ingreso -->
-              <th>Estado</th> <!-- Mostrar si está cerrado, en proceso o esperando contacto -->
-              <th>Acciones</th>
+              <th>IDENTIFICADOR</th> <!-- Enlace al equipo (ejecuta un pop up con la info del equipo) -->
+              <th>INGRESO</th>
+              <th>EGRESO</th>
+              <th>ESTADO</th> <!-- Mostrar si está cerrado, en proceso o esperando contacto -->
+              <th>PRECIO</th>
+              <th>ACCIONES</th>
             </tr>
           </thead>
-          <tbody class="table-light" id="tabla-equipos"></tbody>
+          <tbody class="table-light" id="tabla-trabajos"></tbody>
         </table>
-      </div>
-      <div class="col-md-4">
-        
       </div>
     </div>
   </div>
