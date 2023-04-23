@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2023 a las 01:45:48
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.0.25
+-- Host: localhost
+-- Generation Time: Apr 23, 2023 at 06:48 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `serv_tecnico`
+-- Database: `serv_tecnico`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -34,17 +34,19 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `clientes`
+-- Dumping data for table `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `telefono`) VALUES
 (1, 'Tomás Barros', 936945898),
-(2, 'Gloria Galleguillos', 9343453);
+(2, 'Gloria Galleguillos', 9343453),
+(3, 'María Eugenia', 93546457),
+(4, 'Guiselle France', 9123455);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `equipos`
+-- Table structure for table `equipos`
 --
 
 CREATE TABLE `equipos` (
@@ -57,7 +59,7 @@ CREATE TABLE `equipos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `equipos`
+-- Dumping data for table `equipos`
 --
 
 INSERT INTO `equipos` (`id`, `modelo`, `marca`, `serial`, `dueno`, `comentarios`) VALUES
@@ -65,12 +67,54 @@ INSERT INTO `equipos` (`id`, `modelo`, `marca`, `serial`, `dueno`, `comentarios`
 (2, 'Ideapad 3', 'Lenovo', 'SU93438543', 2, 'Sin detalles'),
 (3, 'Ideapad 7', 'Lenovo', 'SU93438543', 1, 'Sin detalles'),
 (4, 'Ideapad 10', 'Lenovo', 'SU93438543', 1, 'Sin detalles'),
-(5, '240 G5', 'HP', 'SU438438', 1, 'Falta batería');
+(6, 'Matebook', 'Huawei', 'SU5676767', 2, 'Falta la tecla Ñ');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `tr_acciones`
+--
+
+CREATE TABLE `tr_acciones` (
+  `id` int(11) NOT NULL,
+  `equipo_identificador` int(11) NOT NULL,
+  `accionador` int(11) NOT NULL,
+  `comentario` varchar(256) NOT NULL,
+  `fecha` date NOT NULL,
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tr_equipo`
+--
+
+CREATE TABLE `tr_equipo` (
+  `id` int(11) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
+  `equipo_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tr_informacion`
+--
+
+CREATE TABLE `tr_informacion` (
+  `id` int(11) NOT NULL,
+  `identificador_trabajo` int(11) NOT NULL,
+  `ingreso` date NOT NULL,
+  `egreso` date NOT NULL,
+  `estado` int(11) NOT NULL,
+  `precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -81,66 +125,127 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasena`) VALUES
 (1, 'hola', 'tomas@admin.cl', '$2y$10$R5hR7/3B0tJdHxf9Glx8YukwOKzEVGzoqpcEQeCa53PkKWeLAdEeO');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `clientes`
+-- Indexes for table `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `equipos`
+-- Indexes for table `equipos`
 --
 ALTER TABLE `equipos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cliente_id` (`dueno`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `tr_acciones`
+--
+ALTER TABLE `tr_acciones`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `equipo_identificador` (`equipo_identificador`),
+  ADD KEY `accionador` (`accionador`);
+
+--
+-- Indexes for table `tr_equipo`
+--
+ALTER TABLE `tr_equipo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_id` (`cliente_id`),
+  ADD KEY `equipo_id` (`equipo_id`);
+
+--
+-- Indexes for table `tr_informacion`
+--
+ALTER TABLE `tr_informacion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `identificador_trabajo` (`identificador_trabajo`);
+
+--
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `clientes`
+-- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `equipos`
+-- AUTO_INCREMENT for table `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `tr_acciones`
+--
+ALTER TABLE `tr_acciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tr_equipo`
+--
+ALTER TABLE `tr_equipo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tr_informacion`
+--
+ALTER TABLE `tr_informacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `equipos`
+-- Constraints for table `equipos`
 --
 ALTER TABLE `equipos`
   ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`dueno`) REFERENCES `clientes` (`id`);
+
+--
+-- Constraints for table `tr_acciones`
+--
+ALTER TABLE `tr_acciones`
+  ADD CONSTRAINT `tr_acciones_ibfk_1` FOREIGN KEY (`equipo_identificador`) REFERENCES `tr_equipo` (`id`),
+  ADD CONSTRAINT `tr_acciones_ibfk_2` FOREIGN KEY (`accionador`) REFERENCES `usuarios` (`id`);
+
+--
+-- Constraints for table `tr_equipo`
+--
+ALTER TABLE `tr_equipo`
+  ADD CONSTRAINT `tr_equipo_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`),
+  ADD CONSTRAINT `tr_equipo_ibfk_2` FOREIGN KEY (`equipo_id`) REFERENCES `equipos` (`id`);
+
+--
+-- Constraints for table `tr_informacion`
+--
+ALTER TABLE `tr_informacion`
+  ADD CONSTRAINT `tr_informacion_ibfk_1` FOREIGN KEY (`identificador_trabajo`) REFERENCES `tr_equipo` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
