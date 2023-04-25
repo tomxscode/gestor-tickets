@@ -3,18 +3,20 @@ require_once "./Trabajo.php";
 require_once "../database/db.php";
 
 $trabajo_id = $_POST['trabajo_id'];
-$ingreso = $_POST['ingreso'];
-$estado = $_POST['estado'];
-$diag_inicial = $_POST['diag_inicial'];
+$accionador = $_POST['accionador'];
+$comentario = $_POST['comentario'];
+$fecha = $_POST['fecha'];
+$precio = $_POST['precio'];
+$estado = 0;
 
 $trabajo = new Trabajo($conexion);
-$infoTrabajo = $trabajo->registrarInformacion($trabajo_id, $ingreso, $estado, $diag_inicial);
+$regAccion = $trabajo->registrarAccion($trabajo_id, $accionador, $comentario, $fecha, $precio, $estado);
 
-if ($infoTrabajo) {
+if ($regAccion) {
     // La consulta se ejecutó correctamente
     echo json_encode(
         array(
-            'success' => true,
+            'success' => true
         )
     );
 } else {

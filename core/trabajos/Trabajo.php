@@ -36,7 +36,20 @@ class Trabajo {
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("isis", $trabajo_id, $ingreso, $estado, $diag_inicial);
         $stmt->execute();
-        $result = $stmt->get_result();
+        if ($stmt->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function registrarAccion($trabajo_id, $accionador, $comentario, $fecha, $precio, $estado) {
+        $sql = "INSERT INTO tr_acciones (equipo_identificador, accionador, comentario, fecha, precio, estado) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("iissii", $trabajo_id, $accionador, $comentario, $fecha, $precio, $estado);
+        $stmt->execute();
+        if ($stmt->error) {
+            die('Error: ' . $stmt->error);
+        }
         if ($stmt->affected_rows > 0) {
             return true;
         } else {
