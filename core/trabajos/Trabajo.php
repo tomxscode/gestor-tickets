@@ -18,7 +18,7 @@ class Trabajo {
     public function getIdTrabajoReg() {
         return $this->id_trabajo_reg;
     }
-    // métodos
+    // métodos crear
     public function registrarTrabajo($cliente_id, $equipo_id) {
         $sql = "INSERT INTO tr_equipo (cliente_id, equipo_id) VALUES (?, ?)";
         $stmt = $this->conn->prepare($sql);
@@ -55,6 +55,20 @@ class Trabajo {
         } else {
             return false;
         }
+    }
+
+    // métodos obtener
+    public function obtenerTrabajosPorRango($fecha_inicio, $fecha_final) {
+        $fecha_inicio = date("Y-m-d", strtotime($fecha_inicio));
+        $fecha_final = date("Y-m-d", strtotime($fecha_final));
+        $sql = "SELECT tr_equipo.id, tr_equipo.identificador, tr_informacion.ingreso, tr_informacion.egreso, tr_informacion.estado, tr_informacion.precio 
+                FROM tr_informacion 
+                INNER JOIN tr_equipo 
+                ON tr_informacion.identificador_trabajo = tr_equipo.id 
+                WHERE ingreso BETWEEN '$fecha_inicio' AND '$fecha_final'";
+        $resultado = mysqli_query($this->conn, $sql);
+        $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        return json_encode($registros);
     }
 }
 ?>
