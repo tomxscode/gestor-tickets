@@ -19,29 +19,57 @@
       <div id="alert-container" class="m-1"></div>
       <h2>Gestión de trabajos</h2>
       <p>Texto de prueba, rellenar con información de la pantalla</p>
+
       <div class="col-md-12">
-        <table class="table">
-          <ul id="paginador" class="pagination"></ul>
-          <thead class="table-dark">
-            <tr class="text-center">
-              <th colspan="7">Listado de trabajos</th>
-            </tr>
-            <tr>
-              <th>ID</th>
-              <th>IDENTIFICADOR</th> <!-- Enlace al equipo (ejecuta un pop up con la info del equipo) -->
-              <th>INGRESO</th>
-              <th>EGRESO</th>
-              <th>ESTADO</th> <!-- Mostrar si está cerrado, en proceso o esperando contacto -->
-              <th>PRECIO</th>
-              <th>ACCIONES</th>
-            </tr>
-          </thead>
-          <tbody class="table-light" id="tabla-trabajos"></tbody>
-        </table>
+        <div class="row">
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-6">
+            <div class="row d-flex align-items-center">
+              <small>Filtrado por fechas</small>
+              <div class="col-md-4">
+                <label for="fecha_inicio">Desde</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
+              </div>
+              <div class="col-md-4">
+                <label for="fecha_final">Hasta</label>
+                <input type="date" name="fecha_final" id="fecha_final" class="form-control">
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-info form-control" id="btnFiltrar">Filtrar</button>
+              </div>
+            </div>
+            
+          </div>
+
+        </div>
+        <div class="row table-responsive">
+          <table class="table">
+            <ul id="paginador" class="pagination"></ul>
+            <thead class="table-dark">
+              <tr class="text-center">
+                <th colspan="8">Listado de trabajos</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>IDENTIFICADOR</th> <!-- Enlace al equipo (ejecuta un pop up con la info del equipo) -->
+                <th>INGRESO</th>
+                <th>EGRESO</th>
+                <th>DIAGNÓSTICO</th> <!-- Mostrar si está cerrado, en proceso o esperando contacto -->
+                <th>PRECIO</th>
+                <th>ESTADO</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody class="table-light" id="tabla-trabajos"></tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../core/js/trabajos/obtener_trabajos.js"></script>
 </body>
 
 </html>

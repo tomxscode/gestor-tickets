@@ -32,7 +32,7 @@ class Trabajo {
         return $id;
     }
     public function registrarInformacion($trabajo_id, $ingreso, $estado, $diag_inicial) {
-        $sql = "INSERT INTO tr_informacion (identificador_trabajo, ingreso, egreso, estado, precio, diag_inicial) VALUES (?, ?, '10/04/2023', ?, 0, ?)";
+        $sql = "INSERT INTO tr_informacion (identificador_trabajo, ingreso, egreso, estado, precio, diag_inicial) VALUES (?, ?, '0000-00-00', ?, 0, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("isis", $trabajo_id, $ingreso, $estado, $diag_inicial);
         $stmt->execute();
@@ -61,7 +61,7 @@ class Trabajo {
     public function obtenerTrabajosPorRango($fecha_inicio, $fecha_final) {
         $fecha_inicio = date("Y-m-d", strtotime($fecha_inicio));
         $fecha_final = date("Y-m-d", strtotime($fecha_final));
-        $sql = "SELECT tr_equipo.id, tr_equipo.identificador, tr_informacion.ingreso, tr_informacion.egreso, tr_informacion.estado, tr_informacion.precio 
+        $sql = "SELECT tr_equipo.id, tr_equipo.identificador, tr_informacion.ingreso, tr_informacion.egreso, tr_informacion.estado, tr_informacion.precio, tr_informacion.diag_inicial 
                 FROM tr_informacion 
                 INNER JOIN tr_equipo 
                 ON tr_informacion.identificador_trabajo = tr_equipo.id 
