@@ -31,5 +31,17 @@ class Trabajo {
         $this->setIdTrabajoReg($id);
         return $id;
     }
+    public function registrarInformacion($trabajo_id, $ingreso, $estado, $diag_inicial) {
+        $sql = "INSERT INTO tr_informacion (identificador_trabajo, ingreso, egreso, estado, precio, diag_inicial) VALUES (?, ?, '10/04/2023', ?, 0, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("isis", $trabajo_id, $ingreso, $estado, $diag_inicial);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($stmt->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>
