@@ -19,12 +19,12 @@ class Trabajo {
         return $this->id_trabajo_reg;
     }
     // métodos crear
-    public function registrarTrabajo($cliente_id, $equipo_id) {
-        $sql = "INSERT INTO tr_equipo (cliente_id, equipo_id) VALUES (?, ?)";
+    public function registrarTrabajo($cliente_id, $equipo_id, $identificador) {
+        $sql = "INSERT INTO tr_equipo (cliente_id, equipo_id, identificador) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
     
         // Asignar valores a los parámetros
-        $stmt->bind_param("ii", $cliente_id, $equipo_id);
+        $stmt->bind_param("iis", $cliente_id, $equipo_id, $identificador);
         $stmt->execute();
     
         $id = mysqli_insert_id($this->conn);
