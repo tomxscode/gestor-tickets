@@ -25,27 +25,14 @@
           <div class="col-md-6">
 
           </div>
-          <div class="col-md-6">
-            <div class="row d-flex align-items-center">
-              <small>Filtrado por fechas</small>
-              <div class="col-md-4">
-                <label for="fecha_inicio">Desde</label>
-                <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
-              </div>
-              <div class="col-md-4">
-                <label for="fecha_final">Hasta</label>
-                <input type="date" name="fecha_final" id="fecha_final" class="form-control">
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-info form-control" id="btnFiltrar">Filtrar</button>
-              </div>
-            </div>
+          
             
           </div>
 
         </div>
         <div class="row table-responsive">
-          <table class="table">
+          <div class="col-md-10">
+            <table class="table">
             <ul id="paginador" class="pagination"></ul>
             <thead class="table-dark">
               <tr class="text-center">
@@ -64,6 +51,22 @@
             </thead>
             <tbody class="table-light" id="tabla-trabajos"></tbody>
           </table>
+          </div>
+          <div class="col-md-2">
+            <div class="row">
+              <small>Filtrado por fechas</small>
+              <div class="form-group">
+                <label for="fecha_inicio">Desde</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="fecha_final">Hasta</label>
+                <input type="date" name="fecha_final" id="fecha_final" class="form-control">
+              </div>
+              <div class="form-group mt-2">
+                <button class="btn btn-info form-control" id="btnFiltrar">Filtrar</button>
+              </div>
+            </div>
         </div>
       </div>
     </div>
