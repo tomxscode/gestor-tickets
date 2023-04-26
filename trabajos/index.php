@@ -18,7 +18,7 @@
     <div class="row">
       <div id="alert-container" class="m-1"></div>
       <h2>Gestión de trabajos</h2>
-      <p>Texto de prueba, rellenar con información de la pantalla</p>
+      <p>Administra los trabajos</p>
 
       <div class="col-md-12">
         <div class="row">
