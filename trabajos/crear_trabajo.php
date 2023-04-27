@@ -15,6 +15,7 @@
   <?php require_once "../core/views/header.php"; ?>
 
   <div class="container">
+    <div id="alert-container"></div>
     <div class="row">
       <h1>Creación de trabajo</h1>
       <form class="form" id="form-ingreso">
@@ -23,16 +24,18 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="equipo">Equipo</label>
-              <input type="text" name="equipos-input" id="equipos-input" class="form-control" placeholder="Busqueda de equipos...">
-                <select name="equipos-select" id="equipos-select" class="mt-1 form-select"></select>
+              <input type="text" name="equipos-input" id="equipos-input" class="form-control"
+                placeholder="Busqueda de equipos...">
+              <select name="equipos-select" id="equipos-select" class="mt-1 form-select"></select>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-group">
               <label for="cliente">Cliente</label>
-              <input type="text" name="cliente-input" id="cliente-input" class="form-control" placeholder="Busqueda de clientes...">
-                <select name="cliente-select" id="cliente-select" class="mt-1 form-select"></select>
+              <input type="text" name="cliente-input" id="cliente-input" class="form-control"
+                placeholder="Busqueda de clientes...">
+              <select name="cliente-select" id="cliente-select" class="mt-1 form-select"></select>
             </div>
           </div>
 

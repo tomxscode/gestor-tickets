@@ -1,3 +1,4 @@
+let alertContainer = document.querySelector("#alert-container");
 document.addEventListener("DOMContentLoaded", function () {
   let hoy = new Date();
 
@@ -8,19 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
   let hoyFormateado = hoy.getFullYear() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getDate();
   let semanaFormateada = semanaPasada.getFullYear() + '-' + (semanaPasada.getMonth() + 1) + '-' + semanaPasada.getDate();
   
-  obtenerTrabajos(semanaFormateada, hoyFormateado);
+  obtenerTrabajos(semanaFormateada, hoyFormateado, 1);
   console.log(hoyFormateado,semanaFormateada)
 })
+
 
 const btnFiltrar = document.querySelector("#btnFiltrar");
 btnFiltrar.addEventListener('click', function () {
   let fecha_inicio = document.querySelector("#fecha_inicio").value;
   let fecha_final = document.querySelector("#fecha_final").value;
   console.log(fecha_inicio, fecha_final);
-  obtenerTrabajos(fecha_inicio, fecha_final);
+  obtenerTrabajos(fecha_inicio, fecha_final, 0);
 })
 
-function obtenerTrabajos(fecha_inicio, fecha_final) {
+function obtenerTrabajos(fecha_inicio, fecha_final, estado) {
   fetch('../core/trabajos/obtener_rango.php', {
     method: 'POST',
     body: JSON.stringify({ fecha_inicio, fecha_final }),
@@ -58,4 +60,9 @@ function obtenerTrabajos(fecha_inicio, fecha_final) {
       });
     })
     .catch(error => console.error('Error en la petición' + error));
+    if (estado) {
+      alertContainer.innerHTML = "<div class='alert alert-info' role='alert'>No se ingresó ninguna fecha, por lo que se verán los trabajos de la última semana</div>"; 
+    } else {
+      alertContainer.innerHTML = "";
+    }
 }

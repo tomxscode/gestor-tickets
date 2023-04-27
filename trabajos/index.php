@@ -16,9 +16,12 @@
 
   <div class="container">
     <div class="row">
-      <div id="alert-container" class="m-1"></div>
       <h2>Gestión de trabajos</h2>
       <p>Administra los trabajos</p>
+      <div id="alert-container" class="mt-3"></div>
+      <div class="row mt-2 mb-2">
+        <a href="crear_trabajo.php" class="btn btn-success" style="font-size: 16pt;">Crear trabajo</a>
+      </div>
 
       <div class="col-md-12">
         <div class="row">

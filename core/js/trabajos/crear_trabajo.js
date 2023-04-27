@@ -47,9 +47,18 @@ function crearInfo() {
   .then(data => {
     if (data.success) {
       console.log(data)
+      mostrarModalExito("\
+        La orden de trabajo fue ingresada exitosamente <br> \
+        Vea los trabajos ingresados cliqueando <a href='index.php'>aqui</a>");
     } else {
       console.log("Error al crear la información")
     }
   })
   .catch(error => console.log(error))
+}
+
+function mostrarModalExito(text) {
+  const alertContainer = document.querySelector("#alert-container");
+  alertContainer.innerHTML = "";
+  alertContainer.innerHTML += "<div class='alert alert-success' role='alert'>" + text + "</div>";
 }
