@@ -17,7 +17,7 @@
   <div class="container">
     <div class="row">
       <h1>Creación de trabajo</h1>
-      <div class="form" id="form-ingreso">
+      <form class="form" id="form-ingreso">
         <div class="row">
 
           <div class="col-md-6">
@@ -42,16 +42,17 @@
           </div>
 
           <div class="form-group mt-2">
-            <button class="form-control btn btn-success">Crear órden</button>
+            <button class="form-control btn btn-success" id="btn-crear">Crear órden</button>
             <button type="reset" class="form-control btn btn-danger mt-2">Limpiar</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../core/js/clientes/clientes_select.js"></script>
   <script src="../core/js/equipos/equipos_select.js"></script>
+  <script src="../core/js/trabajos/crear_trabajo.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 <?php
 require_once "./Trabajo.php";
 require_once "../database/db.php";
-
-$trabajo_id = $_POST['trabajo_id'];
-$ingreso = $_POST['ingreso'];
-$estado = $_POST['estado'];
-$diag_inicial = $_POST['diag_inicial'];
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body);
+$trabajo_id = $data->trabajo_id;
+$ingreso = $data->hoyFormateado;
+$estado = 0;
+$diag_inicial = $data->diagnostico;
 
 $trabajo = new Trabajo($conexion);
 $infoTrabajo = $trabajo->registrarInformacion($trabajo_id, $ingreso, $estado, $diag_inicial);

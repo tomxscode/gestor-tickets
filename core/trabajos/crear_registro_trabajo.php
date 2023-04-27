@@ -1,9 +1,10 @@
 <?php
 require_once "./Trabajo.php";
 require_once "../database/db.php";
-
-$cliente_id = $_POST['cliente_id'];
-$equipo_id = $_POST['equipo_id'];
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body);
+$cliente_id = $data->cliente_id;
+$equipo_id = $data->equipo_id;
 
 $trabajo = new Trabajo($conexion);
 
