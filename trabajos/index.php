@@ -33,8 +33,8 @@
           </div>
 
         </div>
-        <div class="row table-responsive">
-          <div class="col-md-10">
+        <div class="row">
+          <div class="col-lg-10 table-responsive">
             <table class="table">
             <ul id="paginador" class="pagination"></ul>
             <thead class="table-dark">
@@ -55,7 +55,7 @@
             <tbody class="table-light" id="tabla-trabajos"></tbody>
           </table>
           </div>
-          <div class="col-md-2">
+          <div class="col-lg-2">
             <div class="row">
               <small>Filtrado por fechas</small>
               <div class="form-group">

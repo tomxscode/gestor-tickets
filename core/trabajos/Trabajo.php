@@ -70,5 +70,25 @@ class Trabajo {
         $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         return json_encode($registros);
     }
+
+    public function obtenerInformacion($trabajo_id) {
+        $stmt = $this->conn->prepare("SELECT tr_equipo.id, tr_equipo.identificador, tr_informacion.ingreso, tr_informacion.egreso, tr_informacion.estado, tr_informacion.precio, tr_informacion.diag_inicial 
+                FROM tr_informacion 
+                INNER JOIN tr_equipo 
+                ON tr_informacion.identificador_trabajo = tr_equipo.id 
+                WHERE tr_equipo.id = ?");
+        $stmt->bind_param("i", $trabajo_id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $registro = $resultado->fetch_assoc();
+        return json_encode($registro);
+    }
+
+    public function obtenerAccionesPorId($trabajo_id) {
+        $sql = "SELECT * FROM tr_acciones WHERE equipo_identificador = $trabajo_id";
+        $resultados = mysqli_query($this->conn, $sql);
+        $registros = mysqli_fetch_all($resultados, MYSQLI_ASSOC);
+        return json_encode($registros);
+    }
 }
 ?>

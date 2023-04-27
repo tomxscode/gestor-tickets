@@ -1,12 +1,13 @@
 <?php
 require_once "./Trabajo.php";
 require_once "../database/db.php";
-
-$trabajo_id = $_POST['trabajo_id'];
-$accionador = $_POST['accionador'];
-$comentario = $_POST['comentario'];
-$fecha = $_POST['fecha'];
-$precio = $_POST['precio'];
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body);
+$trabajo_id = $data->trabajo_id;
+$accionador = $data->accionador;
+$comentario = $data->comentario;
+$fecha = $data->fecha;
+$precio = $data->precio;
 $estado = 0;
 
 $trabajo = new Trabajo($conexion);
