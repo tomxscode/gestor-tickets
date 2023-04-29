@@ -2,11 +2,20 @@ const btnCrear = document.querySelector("#btn-crear");
 const form = document.querySelector("#form-ingreso");
 
 let trabajo_id = 0;
+let enviadoEstado = false;
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
   crearOrden();
+  enviadoEstado = true;
 })
+
+if (!enviadoEstado) {
+  btnCrear.addEventListener("click", function() {
+    enviadoEstado = true;
+    crearOrden();
+  })
+}
 
 function crearOrden() {
   const cliente_id = form.querySelector("#cliente-select").value;
@@ -50,6 +59,7 @@ function crearInfo() {
       mostrarModalExito("\
         La orden de trabajo fue ingresada exitosamente <br> \
         Vea los trabajos ingresados cliqueando <a href='index.php'>aqui</a>");
+      enviadoEstado = false; // Resetea el estado a 0
     } else {
       console.log("Error al crear la información")
     }
